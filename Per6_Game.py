@@ -1,6 +1,6 @@
 import pygame
 import random
-
+import projectbutton
 score = 0
 
 #inputs for Window
@@ -31,59 +31,59 @@ def Game_Start(Y_N_start):
                     screen.set_at((x, y), (0, 70, 225))
 
         # The Pixel design
-                    food = [screen.set_at((x + 1, y), (0, 70, 225)),       #right
-                    screen.set_at((x + 1, y + 1), (0, 70, 225)),   #top right
-                    screen.set_at((x, y + 1), (0, 70, 225)),       #top
-                    screen.set_at((x - 1, y + 1), (0, 70, 225)),   #top left
-                    screen.set_at((x - 1, y), (0, 70, 225)),       #left
-                    screen.set_at((x - 1, y - 1), (0, 70, 225)),   #bot left
-                    screen.set_at((x, y - 1), (0, 70, 225)),       #bot
-                    screen.set_at((x + 1, y - 1), (0, 70, 225)),   #bot right
-                    screen.set_at((x + 2, y), (0, 70, 225)),       #right
-                    screen.set_at((x + 2, y + 2), (0, 70, 225)),   #top right
-                    screen.set_at((x, y + 2), (0, 70, 225)),       #top
-                    screen.set_at((x - 2, y + 2), (0, 70, 225)),   #top left
-                    screen.set_at((x - 2, y), (0, 70, 225)),       #left
-                    screen.set_at((x - 2, y - 2), (0, 70, 225)),   #bot left
-                    screen.set_at((x, y - 2), (0, 70, 225)),       #bot
-                    screen.set_at((x + 2, y - 2), (0, 70, 225))]   #bot right
+                    if move == "Left":
+                            food = [screen.set_at((x + 1, y), (0, 70, 225)),       #right
+                            screen.set_at((x + 1, y + 1), (0, 70, 225)),   #top right
+                            screen.set_at((x, y + 1), (0, 70, 225)),       #top
+                            screen.set_at((x - 1, y + 1), (0, 70, 225)),   #top left
+                            screen.set_at((x - 1, y), (0, 70, 225)),       #left
+                            screen.set_at((x - 1, y - 1), (0, 70, 225)),   #bot left
+                            screen.set_at((x, y - 1), (0, 70, 225)),       #bot
+                            screen.set_at((x + 1, y - 1), (0, 70, 225)),   #bot right
+                            screen.set_at((x + 2, y), (0, 70, 225)),       #right
+                            screen.set_at((x + 2, y + 2), (0, 70, 225)),   #top right
+                            screen.set_at((x, y + 2), (0, 70, 225)),       #top
+                            screen.set_at((x - 2, y + 2), (0, 70, 225)),   #top left
+                            screen.set_at((x - 2, y), (0, 70, 225)),       #left
+                            screen.set_at((x - 2, y - 2), (0, 70, 225)),   #bot left
+                            screen.set_at((x, y - 2), (0, 70, 225)),       #bot
+                            screen.set_at((x + 2, y - 2), (0, 70, 225))]   #bot right
 
                     for event in pygame.event.get():    
                         if event.type == pygame.QUIT:
                             running = False
                             
                     snake_head = [screen.set_at((248, 248), (255, 0, 0)),
-                                  screen.set_at((249, 248),(225, 0 , 0)),
-                                  screen.set_at((250, 248), (255, 0, 0)),
-                                  screen.set_at((251, 248), (255, 0, 0)),
-                                  screen.set_at((252, 248),(225, 0 , 0)),
-                            
                                   screen.set_at((248, 249), (255, 0, 0)),
-                                  screen.set_at((249, 249),(225, 0 , 0)),
-                                  screen.set_at((250, 249), (255, 0, 0)),
-                                  screen.set_at((251, 249), (255, 0, 0)),
-                                  screen.set_at((252, 249),(225, 0 , 0)), 
-
-                                  screen.set_at((248, 250),(225, 0 , 0)),
-                                  screen.set_at((249, 250), (255, 0, 0)),
-                                  screen.set_at((250, 250), (255, 0, 0)),
-                                  screen.set_at((251, 250), (255, 0, 0)),
-                                  screen.set_at((252, 250), (255, 0, 0)),
-                                  
-                                  screen.set_at((248, 251),(225, 0 , 0)),
-                                  screen.set_at((249, 251), (255, 0, 0)),
-                                  screen.set_at((250, 251), (255, 0, 0)),
-                                  screen.set_at((251, 251),(225, 0 , 0)),
-                                  screen.set_at((252, 251), (255, 0, 0)),
-                                  
+                                  screen.set_at((248, 250), (225, 0, 0)),    #back row of head (Left = back, right = front)
+                                  screen.set_at((248, 251), (225, 0, 0)),
                                   screen.set_at((248, 252), (255, 0, 0)),
-                                  screen.set_at((249, 252),(225, 0 , 0)),
+                                  
+                                  screen.set_at((249, 248), (225, 0, 0)),
+                                  screen.set_at((249, 249), (225, 0, 0)),
+                                  screen.set_at((249, 250), (255, 0, 0)),   #2nd to back
+                                  screen.set_at((249, 251), (255, 0, 0)),
+                                  screen.set_at((249, 252), (225, 0, 0)),
+                                  
+                                  screen.set_at((250, 248), (255, 0, 0)),
+                                  screen.set_at((250, 249), (255, 0, 0)),
+                                  screen.set_at((250, 250), (255, 0, 0)),   #middle
+                                  screen.set_at((250, 251), (255, 0, 0)),
                                   screen.set_at((250, 252), (255, 0, 0)),
+                                  
+                                  screen.set_at((251, 248), (255, 0, 0)),
+                                  screen.set_at((251, 249), (255, 0, 0)),
+                                  screen.set_at((251, 250), (255, 0, 0)),   #second to front
+                                  screen.set_at((251, 251), (225, 0, 0)),
                                   screen.set_at((251, 252), (255, 0, 0)),
-                                  screen.set_at((252, 252),(225, 0 , 0)),]
-                    Snake = [snake_head]
-                    if snake_head[0:] == food:
-                            score += 1
+                                  
+                                  screen.set_at((252, 248), (225, 0, 0)),
+                                  screen.set_at((252, 249), (225, 0, 0)),
+                                  screen.set_at((252, 250), (255, 0, 0)),   #front
+                                  screen.set_at((252, 251), (255, 0, 0)),
+                                  screen.set_at((252, 252), (225, 0, 0))]
+
+
                     #if snake_head[0] in snake_head[1:]:
                     #        break
                     
