@@ -1,6 +1,10 @@
+print("1")
 import pygame
+print("2")
 import random
+print("3")
 import projectbutton
+print("4")
 score = 0
 
 #inputs for Window
@@ -26,21 +30,22 @@ def Game_Start(Y_N_start):
             print(Game_board(width_input, height_input))
             running = True
             while running:
+                    FUNction = projectbutton.move(projectbutton.left_button, projectbutton.right_button)
                     x = random.randint(50, width_input - 50)
                     y = random.randint(50, height_input - 50)
                     screen.set_at((x, y), (0, 70, 225))
 
         # The Pixel design
-                    if move == "Left":
-                            food = [screen.set_at((x + 1, y), (0, 70, 225)),       #right
-                            screen.set_at((x + 1, y + 1), (0, 70, 225)),   #top right
-                            screen.set_at((x, y + 1), (0, 70, 225)),       #top
-                            screen.set_at((x - 1, y + 1), (0, 70, 225)),   #top left
-                            screen.set_at((x - 1, y), (0, 70, 225)),       #left
-                            screen.set_at((x - 1, y - 1), (0, 70, 225)),   #bot left
-                            screen.set_at((x, y - 1), (0, 70, 225)),       #bot
-                            screen.set_at((x + 1, y - 1), (0, 70, 225)),   #bot right
-                            screen.set_at((x + 2, y), (0, 70, 225)),       #right
+                    if FUNction == "Left":
+                            food = [screen.set_at((x + 1, y), (54, 70, 225)),       #right
+                            screen.set_at((x + 1, y + 1), (0, 40, 225)),   #top right
+                            screen.set_at((x, y + 1), (220, 70, 225)),       #top
+                            screen.set_at((x - 1, y + 1), (130, 70, 225)),   #top left
+                            screen.set_at((x - 1, y), (240, 70, 225)),       #left
+                            screen.set_at((x - 1, y - 1), (230, 70, 225)),   #bot left
+                            screen.set_at((x, y - 1), (130, 70, 225)),       #bot
+                            screen.set_at((x + 1, y - 1), (10, 70, 225)),   #bot right
+                            screen.set_at((x + 2, y), (40, 70, 225)),       #right
                             screen.set_at((x + 2, y + 2), (0, 70, 225)),   #top right
                             screen.set_at((x, y + 2), (0, 70, 225)),       #top
                             screen.set_at((x - 2, y + 2), (0, 70, 225)),   #top left
